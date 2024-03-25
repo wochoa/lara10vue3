@@ -19,6 +19,12 @@ use App\Http\Controllers\Rolesypermisos;
 //     return view('app');
 // });
 
+// login route
+Route::get('/login', function () {
+    return view('login');
+})->middleware('guest')->name('login');
+// sign in route
+
 // ROLES Y PERMISOS
 Route::get('rolesypermisos', [Rolesypermisos::class,'index'])->name('Rolesypermisos');
 Route::post('addpermisos', [Rolesypermisos::class,'addpermisos'])->name('addpermisos');

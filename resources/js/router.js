@@ -1,9 +1,9 @@
 /* router.js */
 import { createRouter, createWebHistory } from "vue-router";
 
-import Inicio from "./components/Inicio.vue";
-import Nosotros from "./components/Nosotros.vue";
-import NotFound from "./components/NotFound.vue";
+import Inicio from "./components/admin/Inicio.vue";
+import Nosotros from "./components/admin/Nosotros.vue";
+import NotFound from "./components/admin/NotFound.vue";
 
 const routes = [
   { path: "/", component: Inicio },
