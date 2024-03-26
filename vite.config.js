@@ -4,18 +4,18 @@ import path from 'path';
 import vue from "@vitejs/plugin-vue"; //add this line
 
 
+
 // Load environment variables
 
 
 export default defineConfig({
+
+
+
+
     plugins: [
-        vue({
-            template: {
-              compilerOptions: {
-                isCustomElement: tag => tag.startsWith('x-')
-              }
-            }
-          }), // write this
+        vue(), // write this
+
         laravel({
             input: [
                 'resources/sass/app.scss',
@@ -27,7 +27,9 @@ export default defineConfig({
             resolve:{
                 alias:{
                     '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
+
                     "vue": "@vue/compat/dist/vue.esm-bundler.js"
+
                 }
             },
             // Fin Importamos Bootstrap 5
