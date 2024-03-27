@@ -1,4 +1,4 @@
-import 'bootstrap';
+// import 'bootstrap';
 
 // importamos el archivo app.scss
 import '../sass/app.scss';
