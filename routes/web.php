@@ -20,9 +20,9 @@ use App\Http\Controllers\Rolesypermisos;
 // });
 
 // login route
-Route::get('/login', function () {
-    return view('login');
-})->middleware('guest')->name('login');
+// Route::get('/login', function () {
+//     return view('login');
+// })->middleware('guest')->name('login');
 // sign in route
 
 // ROLES Y PERMISOS

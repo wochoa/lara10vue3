@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#712cf9">
     {{-- @vite('resources/sass/app.scss') --}}
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="{{ asset('js/color-modes.js') }}"></script>
+    {{-- <script src="{{ asset('js/color-modes.js') }}"></script> --}}
     @vite('resources/js/app.js')
 </head>
 

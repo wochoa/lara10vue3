@@ -53,7 +53,7 @@ export default {
     data() {
         return {
             user: {
-                email: 'tiana.mayer@example.com',
+                email: 'antoinette14@example.net',//'tiana.mayer@example.com',
                 password: 'password'
             },
             loading: false
@@ -67,7 +67,7 @@ export default {
     },
     created() {
         if (this.loggedIn) {
-            this.$router.push("/profile");
+            this.$router.push("/home");
         }
     },
 
@@ -81,23 +81,25 @@ export default {
             this.loading = true;
             // axios.post('http://localhost:8000/api/auth/login', this.user)
             //     .then(response => {
-            //         // console.log(response.data)
+            //         console.log(response.data)
             //         if (response.data.accessToken) {
             //           localStorage.setItem('user', JSON.stringify(response.data));
             //         }
             //     });
 
-            this.$store.dispatch("auth/login", this.user);
+            // this.$store.dispatch("auth/login", this.user);
 
-            // this.$store.dispatch("auth/login", this.user).then(
-            //     () => {
-            //         this.$router.push("/profile");
-            //     },
-            //     (error) => {
+            this.$store.dispatch("auth/login", this.user).then(
+                () => {
+                    this.$router.push("/home");// ingresa al dashboard
+                    location.reload();
 
-            //         console.log(error)
-            //     }
-            // );
+                },
+                (error) => {
+
+                    console.log(error)
+                }
+            );
         },
 
     },
