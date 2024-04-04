@@ -271,6 +271,21 @@
 
 <script>
 export default {
+  name: 'Lara10vue3Register',
 
-}
+  data() {
+    return {
+        local:''
+    };
+  },
+
+  mounted() {
+    const loggedIn = localStorage.getItem('user');
+    this.local=loggedIn;
+  },
+
+  methods: {
+
+  },
+};
 </script>

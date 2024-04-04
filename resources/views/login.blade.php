@@ -63,15 +63,6 @@
 
     <script src="{{ asset('js/apps.js') }}"></script>
 </body> --}}
-<body>
-	<main class="d-flex w-100" id="app">
-		<Login />
-	</main>
 
-	{{-- <script src="{{ asset('js/apps.js') }}"></script> --}}
-
-
-
-</body>
 
 </html>
