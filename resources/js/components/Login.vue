@@ -17,7 +17,7 @@
                             <form @submit.prevent="handleLogin">
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
-                                    <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" v-model="user.email" required>
+                                    <input class="form-control form-control-lg" type="text" name="email" placeholder="Enter your email" v-model="user.adm_email" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Password</label>
@@ -53,8 +53,8 @@ export default {
     data() {
         return {
             user: {
-                email: 'tiana.mayer@example.com',
-                password: 'password'
+                adm_email: 'WOCHOA2',
+                password: 'pionero123'
             },
             loading: false
 

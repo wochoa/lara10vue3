@@ -65,7 +65,7 @@ class User extends Authenticatable implements JWTSubject
     }
     public function dependencia()
     {
-        return $this->belongsTo(Depedencia::class, 'depe_id','iddependencia')->select('iddependencia','depe_nombre','depe_depende');
+        return $this->belongsTo(Dependencia::class, 'depe_id','iddependencia')->select('iddependencia','depe_nombre','depe_depende');
     }
     public function getJWTIdentifier() {
         return $this->getKey();

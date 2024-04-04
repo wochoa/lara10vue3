@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Rolesypermisos;
 
+use App\Http\Controllers\Dependencia;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ use App\Http\Controllers\Rolesypermisos;
 // })->middleware('guest')->name('login');
 // sign in route
 
+Route::get('datosuser/{dni}', [Dependencia::class, 'usuariosdepe']);
+
 // ROLES Y PERMISOS
 Route::get('rolesypermisos', [Rolesypermisos::class,'index'])->name('Rolesypermisos');
 Route::post('addpermisos', [Rolesypermisos::class,'addpermisos'])->name('addpermisos');
@@ -32,6 +35,8 @@ Route::post('updatepermisos', [Rolesypermisos::class,'updatepermisos'])->name('u
 Route::get('verpermisos/{idrol}', [Rolesypermisos::class,'verpermisos'])->name('verpermisos');
 Route::post('quitarperdelrol', [Rolesypermisos::class,'quitarperdelrol'])->name('quitarperdelrol');
 Route::post('agregarperdelrol', [Rolesypermisos::class,'agregarperdelrol'])->name('agregarperdelrol');
+
+
 
 
 Route::get('/{pathMatch}', function () {
