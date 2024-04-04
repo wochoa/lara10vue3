@@ -1,7 +1,7 @@
 import AuthService from "../services/auth.service";
 
 const user = JSON.parse(localStorage.getItem("user"));
-const API_URL = "http://localhost:8080/api/auth/login";
+const API_URL = import.meta.env.BASE_URL_API;//"http://localhost:8080/api/auth/login";
 
 const initialState = user
     ? { status: { loggedIn: true }, user }
@@ -14,29 +14,29 @@ export const auth = {
         login({ commit }, user) {
             // -> dispatch('auth/login')
 
-            // return AuthService.login(user).then(
-            //     (user) => {
-            //         commit("loginSuccess", user);
-            //         return Promise.resolve(user);
-            //     },
-            //     (error) => {
-            //         commit("loginFailure");
-            //         return Promise.reject(error);
-            //     }
-            // );
-            axios
-                .post(API_URL, user)
-                .then((response) => {
-                    console.log(response.data);
-                    commit("loginSuccess", response.data);
-                    if (response.data.accessToken) {
-                        localStorage.setItem(
-                            "user",
-                            JSON.stringify(response.data)
-                        );
+            return AuthService.login(user).then(
+                (user) => {
+                    commit("loginSuccess", user);
+                    return Promise.resolve(user);
+                },
+                (error) => {
+                    commit("loginFailure");
+                    return Promise.reject(error);
+                }
+            );
+            // axios
+            //     .post(API_URL, user)
+            //     .then((response) => {
+            //         console.log(response.data);
+            //         commit("loginSuccess", response.data);
+            //         if (response.data.accessToken) {
+            //             localStorage.setItem(
+            //                 "user",
+            //                 JSON.stringify(response.data)
+            //             );
 
-                    }
-                });
+            //         }
+            //     });
         },
         logout(
             { commit } // -> dispatch('auth/logout')
