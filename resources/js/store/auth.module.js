@@ -1,7 +1,7 @@
 import AuthService from "../services/auth.service";
 
 const user = JSON.parse(localStorage.getItem("user"));
-const API_URL = import.meta.env.BASE_URL_API;//"http://localhost:8080/api/auth/login";
+
 
 const initialState = user
     ? { status: { loggedIn: true }, user }
@@ -10,26 +10,29 @@ const initialState = user
 export const auth = {
     namespaced: true,
     state: initialState,
+
+
     actions: {
+
         login({ commit }, user) {
             // -> dispatch('auth/login')
 
             return AuthService.login(user).then(
                 (user) => {
                     commit("loginSuccess", user);
-                    return Promise.resolve(user);
+                    // return Promise.resolve(user);
                 },
                 (error) => {
                     commit("loginFailure");
-                    return Promise.reject(error);
+                    // return Promise.reject(error);
                 }
             );
             // axios
-            //     .post(API_URL, user)
+            //     .post('http://localhost:8081/api/auth/login', user)
             //     .then((response) => {
             //         console.log(response.data);
             //         commit("loginSuccess", response.data);
-            //         if (response.data.accessToken) {
+            //         if (response.data.access_token) {
             //             localStorage.setItem(
             //                 "user",
             //                 JSON.stringify(response.data)

@@ -53,7 +53,7 @@ export default {
     data() {
         return {
             user: {
-                email: 'antoinette14@example.net',//'tiana.mayer@example.com',
+                email: 'tiana.mayer@example.com',
                 password: 'password'
             },
             loading: false
@@ -92,7 +92,7 @@ export default {
             this.$store.dispatch("auth/login", this.user).then(
                 () => {
                     this.$router.push("/home");// ingresa al dashboard
-                    location.reload();
+                    // location.reload();
 
                 },
                 (error) => {

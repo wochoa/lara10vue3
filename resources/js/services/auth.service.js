@@ -1,16 +1,17 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.BASE_URL_API;//'http://localhost:8080/api/auth/';
+const API_URL = import.meta.env.VITE_API_BASE_URL || '/api';
+// const API_URL = 'http://localhost:8081/api';
 
 class AuthService {
   login(user) {
     return axios
-      .post(API_URL + '/auth/api/auth', user)
+      .post(API_URL + '/auth/login', user)
       .then(response => {
-        if (response.data.accessToken) {
+        if (response.data.access_token) {
           localStorage.setItem('user', JSON.stringify(response.data));
         }
-
+        console.log(API_URL);
         return response.data;
       });
   }
