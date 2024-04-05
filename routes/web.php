@@ -27,6 +27,7 @@ use App\Http\Controllers\Dependencia;
 // sign in route
 
 Route::get('datosuser/{dni}', [Dependencia::class, 'usuariosdepe']);
+Route::get('listausuarios', [Dependencia::class, 'listausuarios']);
 
 // ROLES Y PERMISOS
 Route::get('rolesypermisos', [Rolesypermisos::class,'index'])->name('Rolesypermisos');
